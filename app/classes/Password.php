@@ -6,14 +6,15 @@ class Password{
             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     private $simbols = ["@", "!", "#", "$", "%", "*", ".", ","];
     private $numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    private $password;
     private $pass = [];
 
     public function __construct(int $size)
     {
-        return $this->generate($size);
+        $this->generate($size);
     }
 
-    public function generate(int $param){
+    private function generate(int $param){
 
         $newPass = "";
 
@@ -23,7 +24,7 @@ class Password{
         /** EMBARALHA OS DADOS DO ARRAY PARA FICAR ALEATÓRIO */
         shuffle($this->pass);
 
-        for($c = 0; $c <= $param; $c++){
+        for($c = 0; $c < $param; $c++){
 
             $n = random_int(0, sizeof($this->pass) -1);
 
@@ -36,8 +37,16 @@ class Password{
             $newPass .= $this->pass[$n]; 
         }
 
-        return $newPass;
+        $this->setPassword($newPass);
         
+    }
+
+    public function setPassword($var){
+        $this->password = $var;
+    }
+
+    public function getPassowrd(){
+        return $this->password;
     }
 
 }
