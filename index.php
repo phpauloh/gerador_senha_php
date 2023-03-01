@@ -15,7 +15,7 @@
 
                 <h2>Selecione a quantidade de caracteres para a senha:</h2>
 
-                <form action="helper.php" method="POST">
+                <form action="/view/helper.php" method="POST">
                     <div class="inputs">
                         <input type="radio" id="oito" name="input" value="8" checked>
                         <label for="oito">8</label>
